@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lo que uno llega a realizar</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #F7119F;
+            font-family: Arial, sans-serif;
+        }
+        .btn {
+            font-size: 16px;
+            padding: 10px 20px;
+            transition: font-size 0.2s;
+            background-color: #FBAE4B;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        #mensaje {
+            margin-top: 10px;
+            font-size: 18px;
+            color: whitesmoke;
+            text-align: center;
+        }
+        #imagen {
+            margin-top: 20px;
+            max-width: 25%;
+            display: none;
+            border-radius: 4px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1" class="btn">Los licenciados son los mejores</button>
+    <button id="btn2" class="btn">Los inges son mejores</button>
+    <img id="imagen">
+
+    <script>
+        const btn1 = document.getElementById('btn1');
+        const btn2 = document.getElementById('btn2');
+        const imagen = document.getElementById('imagen');
+
+        let fontSize = 16;
+
+        btn1.addEventListener('click', () => {
+            fontSize += 20;
+            btn2.style.fontSize = fontSize + 'px';
+            
+        });
+
+        btn2.addEventListener('click', () => {
+            const imageUrl = 'https://thumbs.dreamstime.com/b/sello-terminado-de-la-se%C3%B1al-51433656.jpg'; // Reemplazar con la dirección de la imagen
+            imagen.src = imageUrl;
+            imagen.style.display = 'block';
+            document.body.innerHTML = '';
+            document.body.appendChild(imagen);
+            const mensaje = document.createElement('div');
+            mensaje.textContent = "Sabia que elegirias esta opcion, I love You";
+            mensaje.id = 'mensaje';
+            document.body.appendChild(mensaje);
+        });
+    </script>
+</body>
+</html>
